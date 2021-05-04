@@ -142,29 +142,7 @@ function updatedhistory(){
     xhr.send();
 }
 
-const xhr1 = new XMLHttpRequest();
-
-xhr1.open('GET', "", true);
-
-xhr1.onload = function() {
-    let root = document.getElementById('updatedhistory');
-    while (root.firstChild) {
-        root.removeChild(root.firstChild);
-    }
-    let ul = document.getElementById('updatedhistory');
-
-    for(let i=0;i<localStorage.length;i++)
-    {
-        let key = localStorage.key(i);
-        let value=localStorage.getItem(key);
-        let li = document.createElement('li');
-        li.classList.add('list-group-item');
-        li.id=key+"li";
-        li.innerHTML= (`<button type="button" id="${key}" onclick ="return liClick(this);" class="btn btn-light">${value}</button>`);
-        ul.appendChild(li);
-    }
-}
-xhr1.send();
+updatedhistory();
 
 function liClick(obj) {
     let idli=$(obj).attr('id');
@@ -172,29 +150,7 @@ function liClick(obj) {
     {
         localStorage.removeItem(idli);
 
-        const xhr1 = new XMLHttpRequest();
-
-        xhr1.open('GET', "", true);
-
-        xhr1.onload = function() {
-            let root = document.getElementById('updatedhistory');
-            while (root.firstChild) {
-                root.removeChild(root.firstChild);
-            }
-            let ul = document.getElementById('updatedhistory');
-
-            for(let i=0;i<localStorage.length;i++)
-            {
-                let key = localStorage.key(i);
-                let value=localStorage.getItem(key);
-                let li = document.createElement('li');
-                li.classList.add('list-group-item');
-                li.id=key+"li";
-                li.innerHTML= (`<button type="button" id="${key}" onclick ="return liClick(this);" class="btn btn-light">${value}</button>`);
-                ul.appendChild(li);
-            }
-        }
-        xhr1.send();
+        updatedhistory();
     }
     
 
